@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Dashboard from "./pages/Dashboard";
+import CounterPage from "./pages/CounterPage";
 import { tasksData } from "./constants/tasks";
 
 function Router() {
@@ -57,6 +58,7 @@ function Router() {
             />
           }
         />
+        <Route path="/counter" element={<CounterPage />} />
       </Routes>
     </BrowserRouter>
   );

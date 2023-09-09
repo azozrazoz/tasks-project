@@ -1,10 +1,13 @@
 import React from "react";
 
 import Task from "../Task";
+import { useSelector } from 'react-redux'
 
 import s from "./Workspace.module.scss";
 
-function Workspace({ refreshTaskData, setTasks, tasks }) {
+function Workspace() {
+  const { tasks } = useSelector((state) => state.tasks);
+
   return (
     <div className={s.workspace}>
       {tasks.toReversed().map((item) => (
@@ -15,9 +18,6 @@ function Workspace({ refreshTaskData, setTasks, tasks }) {
           text={item.text}
           date={item.date}
           isDone={item.isDone}
-          tasks={tasks}
-          setTasks={setTasks}
-          refreshTaskData={refreshTaskData}
         />
       ))}
     </div>

@@ -2,7 +2,13 @@ import React, { useState } from "react";
 
 import s from "./TaskCreator.module.scss";
 
-function TaskCreator({ refreshTaskData, setTasks, tasks }) {
+import { useDispatch, useSelector } from "react-redux";
+
+import { addTask } from '../../store/tasksSlice'
+
+function TaskCreator() {
+  const { tasks } = useSelector((state) => state.tasks);
+  const dispatch = useDispatch()
   const [header, setHeader] = useState("");
   const [note, setNote] = useState("");
 
@@ -18,10 +24,8 @@ function TaskCreator({ refreshTaskData, setTasks, tasks }) {
       date: new Date().toLocaleDateString(),
       isDone: false,
     };
-
-    // console.log(newTask);
-    setTasks((prev) => [ ...prev, newTask]);
-    refreshTaskData();
+    
+    dispatch(addTask(newTask));
   };
 
   return (

@@ -11,24 +11,24 @@ const tasksSlice = createSlice({
       state.tasks.push(action.payload);
     },
     completeTask(state, action) {
-      // state.tasks = state.tasks.map((elem) => {
-      //   if (elem.id === action.payload) {
-      //     if (elem.isDone) {
-      //       state.processedTasksCount += 1;
-      //       state.completedTasksCount -= 1;
-      //     } else {
-      //       state.processedTasksCount -= 1;
-      //       state.completedTasksCount += 1;
-      //     }
+      state.tasks = state.tasks.map((elem) => {
+        if (elem.id === action.payload) {
+          if (elem.isDone) {
+            state.processedTasksCount += 1;
+            state.completedTasksCount -= 1;            
+          } else {
+            state.processedTasksCount -= 1;
+            state.completedTasksCount += 1;
+          }
 
-      //     return {
-      //       ...elem,
-      //       isDone: !elem.isDone,
-      //     };
-      //   }
-      //   return elem;
-      // });
-      state.tasks[action.payload].isDone = !state.tasks[action.payload].isDone;
+          return {
+            ...elem,
+            isDone: !elem.isDone,
+          };
+        }
+        return elem;
+      });
+      // state.tasks[action.payload].isDone = !state.tasks[action.payload].isDone;
     },
   },
 });

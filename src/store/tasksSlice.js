@@ -4,9 +4,28 @@ import { tasksData } from "../constants/tasks";
 const tasksSlice = createSlice({
   name: "tasks",
   initialState: {
-    tasks: tasksData
+    tasks: tasksData,
+    header: "",
+    note: "",
+    edit_id: null,
+    is_edit: false,
   },
   reducers: {
+    setEditId(state, action) {
+      state.edit_id = action.payload;
+    },
+    setIsEdit(state, action) {
+      state.is_edit = action.payload;
+    },
+    setHeader(state, action) {
+      state.header = action.payload;
+    },
+    setNote(state, action) {
+      state.note = action.payload;
+    },
+    updateTask(state, action) {
+      state.tasks[state.edit_id] = action.payload;
+    },
     addTask(state, action) {
       state.tasks.push(action.payload);
     },
@@ -28,11 +47,10 @@ const tasksSlice = createSlice({
         }
         return elem;
       });
-      // state.tasks[action.payload].isDone = !state.tasks[action.payload].isDone;
     },
   },
 });
 
-export const { addTask, completeTask } = tasksSlice.actions;
+export const { addTask, updateTask, completeTask, setHeader, setNote, setEditId, setIsEdit } = tasksSlice.actions;
 
 export const tasksReducer = tasksSlice.reducer;

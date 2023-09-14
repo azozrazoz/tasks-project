@@ -14,7 +14,11 @@
       .text {
         opacity: 0.6;
       }
-      .button {
+      .buttonExecute {
+        background-color: #d6d6d6;
+        color: black;
+      }
+      .buttonEdit {
         background-color: #d6d6d6;
         color: black;
       }
@@ -36,7 +40,7 @@
     justify-content: end;
 }
 
-.button {
+.buttonExecute {
     background-color: #00c41e;
     color: white;
     padding: 0.8rem 1.4rem;
@@ -45,4 +49,16 @@
     text-align: right;  
     margin-left: auto;
     justify-content: end;
+}
+
+.buttonEdit {
+  margin-top: 1rem;
+  background-color: #1976d2;
+  color: white;
+  padding: 0.8rem 1.4rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-align: right;  
+  margin-left: auto;
+  justify-content: end;
 }

@@ -28,8 +28,18 @@
     border-radius: 4px;
 }
 
-.button {
+.buttonSave {
     background-color: #1976d2;
+    color: white;
+    padding: 0.8rem 1.4rem;
+    font-weight: 600;
+    border-radius: 4px;
+    margin-left: auto;
+    justify-content: end;
+}
+
+.buttonEdit {
+    background-color: #e68423;
     color: white;
     padding: 0.8rem 1.4rem;
     font-weight: 600;
